@@ -1,8 +1,15 @@
-import React from "react";
+/* eslint-disable no-unused-vars */
+import React, { useContext } from "react";
 import { Link } from "react-router";
 import RecipeCard from "../components/RecipeCard";
+import { motion } from "framer-motion";
+import { recipecontext } from "../context/RecipeContext";
 
 const Recipes = () => {
+  const { data, setdata } = useContext(recipecontext);
+  const reciperender = data.map((recipe) => (
+    <RecipeCard key={recipe.id} recipe={recipe} />
+  ));
   return (
     <div className="w-full">
       <Link
@@ -12,10 +19,14 @@ const Recipes = () => {
         Create Recipe
       </Link>
 
-        <div className="p-5 mt-15 bg-red-50">
-          <RecipeCard/>
-        </div>
-
+      <motion.div
+        className="p-3 mt-15 flex flex-wrap items-center justify-items-start gap-6"
+        initial={{ opacity: 0, scale: 0.95 }}
+        animate={{ opacity: 1, scale: 1 }}
+        transition={{ duration: 0.5 }}
+      >
+        {data.length > 0 ? reciperender : "No Recipe found!"}
+      </motion.div>
     </div>
   );
 };

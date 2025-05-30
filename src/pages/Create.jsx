@@ -48,12 +48,12 @@ const Create = () => {
         <input
           className="text-xl w-full block mb-5 px-5 py-2 border-b-1 rounded outline-0"
           type="text"
-          {...register("Chef")}
+          {...register("chef")}
           placeholder="Chef"
         />
         <textarea
           className="text-xl w-full block mb-5 px-5 py-2 border-b-1 rounded outline-0"
-          {...register("Desc")}
+          {...register("desc")}
           placeholder="recipe description..."
         ></textarea>
         <textarea

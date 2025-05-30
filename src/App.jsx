@@ -4,7 +4,7 @@ import Mainroutes from "./routes/Mainroutes";
 
 const App = () => {
   return (
-    <div className="h-screen w-screen bg-gray-200  py-4 px-5 flex flex-col items-center ">
+    <div className="h-screen w-screen bg-gray-200  py-4 px-5 flex flex-col items-center overflow-x-hidden ">
 
       <Navbar />
       <Mainroutes />
