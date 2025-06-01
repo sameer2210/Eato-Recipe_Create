@@ -5,15 +5,12 @@ import { motion } from "framer-motion";
 import { recipecontext } from "../context/RecipeContext";
 
 const Favroite = () => {
-   const { favroite } = useContext(recipecontext);
+  const { favroite } = useContext(recipecontext);
   const reciperender = favroite.map((recipe) => (
     <RecipeCard key={recipe.id} recipe={recipe} />
   ));
   return (
-   
     <div className="w-full">
-     
-
       <motion.div
         className="p-3 mt-15 flex flex-wrap items-center justify-items-start gap-6"
         initial={{ opacity: 0, scale: 0.95 }}
@@ -24,7 +21,6 @@ const Favroite = () => {
       </motion.div>
     </div>
   );
-  
-}
+};
 
-export default Favroite
+export default Favroite;

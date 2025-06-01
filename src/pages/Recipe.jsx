@@ -16,13 +16,17 @@ const Recipe = () => {
   console.log(recipe);
 
   const favoriteHandler = () => {
-    setfavroite([...favroite, recipe]);
-    toast.done("Added to favorite")
+    let copyfavroite = [...favroite];
+    copyfavroite.push(recipe);
+    setfavroite(copyfavroite);
+    window.localStorage.setItem("favroite", JSON.stringify(copyfavroite));
+    toast.done("Added to favorite");
   };
   const unfavoriteHandler = () => {
     const filteredfavorite = favroite.filter((f) => f.id != id);
     setfavroite(filteredfavorite);
-    toast.dismiss("Remove from favorite")
+    window.localStorage.setItem("favroite", JSON.stringify(filteredfavorite));
+    toast.dismiss("Remove from favorite");
   };
 
   const [category, setCategory] = useState("breakfast");
@@ -49,6 +53,7 @@ const Recipe = () => {
     const copydata = [...data];
     copydata[i] = { ...recipe, ...updatedRecipe };
     setdata(copydata);
+    window.localStorage.setItem("recipes", JSON.stringify(copydata));
     toast.success("Recipe Updated!");
     reset();
   };
@@ -56,6 +61,8 @@ const Recipe = () => {
   const DeleteHandler = () => {
     const filterData = data.filter((r) => r.id != id);
     setdata(filterData);
+    window.localStorage.setItem("recipes", JSON.stringify(filterData));
+    // if recipe not exist remove also from favorite
     toast.success("Recipe Deleted!");
     navigate(-1);
   };
@@ -71,9 +78,8 @@ const Recipe = () => {
             src={recipe?.image}
             alt="network error"
           />
-          {/* {favroite.includes(recipe) ? */}
-           {favroite.some((f) => f.id === recipe.id) ?
-          (
+          {/* {favroite.find((r) => r.id === recipe.id) ? */}
+          {favroite.some((r) => r.id === recipe.id) ? (
             <i
               onClick={unfavoriteHandler}
               className="ri-heart-add-line px-2 py-1 text-xl shadow-2xl rounded-full  bg-red-500 hover:bg-black hover:text-white "
