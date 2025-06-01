@@ -1,5 +1,5 @@
+/* eslint-disable react-refresh/only-export-components */
 import { createContext, useState } from "react";
-// eslint-disable-next-line react-refresh/only-export-components
 export const recipecontext = createContext(null);
 const RecipeContext = (props) => {
   const [data, setdata] = useState([
@@ -14,8 +14,9 @@ const RecipeContext = (props) => {
       inst: "Preheat the oven to 475°F (245°C).Roll out the pizza dough and spread tomato sauce evenly.Top with slices of fresh mozzarella and fresh basil leaves.Drizzle with olive oil and season with salt and pepper.Bake in the preheated oven for 12-15 minutes or until the crust is golden brown.Slice and serve hot."
     }
   ]);
+  const [favroite, setfavroite] = useState([]);
   return (
-    <recipecontext.Provider value={{ data, setdata }}>
+    <recipecontext.Provider value={{ data, setdata, favroite, setfavroite }}>
       {props.children}
     </recipecontext.Provider>
   );

@@ -6,7 +6,7 @@ import { motion } from "framer-motion";
 import { recipecontext } from "../context/RecipeContext";
 
 const Recipes = () => {
-  const { data, setdata } = useContext(recipecontext);
+  const { data } = useContext(recipecontext);
   const reciperender = data.map((recipe) => (
     <RecipeCard key={recipe.id} recipe={recipe} />
   ));
