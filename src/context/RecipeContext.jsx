@@ -16,12 +16,12 @@ const RecipeContext = (props) => {
     }
   });
 
-  const [favroite, setfavroite] = useState(
-    JSON.parse(window.localStorage.getItem("favroite")) || []
+  const [favorite, setfavorite] = useState(
+    JSON.parse(window.localStorage.getItem("favorite")) || []
   );
 
   return (
-    <recipecontext.Provider value={{ data, setdata, favroite, setfavroite }}>
+    <recipecontext.Provider value={{ data, setdata, favorite, setfavorite }}>
       {props.children}
     </recipecontext.Provider>
   );

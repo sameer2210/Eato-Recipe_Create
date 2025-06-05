@@ -20,9 +20,9 @@
 //       </NavLink>
 //       <NavLink
 //         className={(e) => (e.isActive ? "text-red-400" : "")}
-//         to="/favroite"
+//         to="/favorite"
 //       >
-//         Favroite
+//         favorite
 //       </NavLink>
 //     </div>
 //   );
@@ -91,8 +91,9 @@ const Navbar = () => {
             FAVORITE
           </NavLink>
         </div>
-        <NavLink className="px-4 py-2 text-black bg-transparent border border-gray-800 rounded-full text-base hover:text-white hover:shadow-2xl hover:shadow-green-500 hover:bg-gray-800 transition-all duration-300"
-        to="/recipes/create-recipe"
+        <NavLink
+          className="px-4 py-2 text-black bg-transparent border border-gray-800 rounded-full text-base hover:text-white hover:shadow-2xl hover:shadow-green-500 hover:bg-gray-800 transition-all duration-300"
+          to="/recipes/create-recipe"
         >
           let's go
         </NavLink>

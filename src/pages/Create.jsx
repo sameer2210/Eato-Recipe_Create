@@ -6,6 +6,7 @@ import { toast } from "react-toastify";
 
 import { recipecontext } from "../context/RecipeContext";
 import { useNavigate } from "react-router";
+import Recipe from "./Recipe";
 
 const Create = () => {
   const navigate = useNavigate();
@@ -34,26 +35,30 @@ const Create = () => {
   console.log(data);
 
   return (
-    <div className="w-full h-max p-5 ">
+    <div className="w-full h-max flex flex-col justify-center items-center p-5 bg-gradient-to-r from-red-50 via-15% to-pink-50 rounded-xl ">
+      <h1 className="text-4xl font-mono">Create your Recipe</h1>
       <form
         onSubmit={handleSubmit(SubmitHandler)}
-        className=" mt-5 p-5 shadow w-1/3 rounded-2xl ml-5 "
+        className=" mt-5 p-5 shadow-2xl w-1/3 rounded-2xl  "
       >
         <input
           className="text-xl w-full block mb-5 px-5 py-1 border-b-1 rounded outline-0"
           type="url"
+          required
           {...register("image")}
           placeholder="Image url"
         />
         <input
           className="text-xl w-full block mb-5 px-5 py-2 border-b-1 rounded outline-0"
           type="text"
+          required
           {...register("title")}
           placeholder="Title"
         />
         <input
           className="text-xl w-full block mb-5 px-5 py-2 border-b-1 rounded outline-0"
           type="text"
+          required
           {...register("chef")}
           placeholder="Chef"
         />

@@ -8,7 +8,7 @@
 
 // const Recipe = () => {
 //   const navigate = useNavigate();
-//   const { data, setdata, favroite, setfavroite } = useContext(recipecontext);
+//   const { data, setdata, favorite, setfavorite } = useContext(recipecontext);
 //   const { id } = useParams();
 //   console.log(id);
 
@@ -16,16 +16,16 @@
 //   console.log(recipe);
 
 //   const favoriteHandler = () => {
-//     let copyfavroite = [...favroite];
-//     copyfavroite.push(recipe);
-//     setfavroite(copyfavroite);
-//     window.localStorage.setItem("favroite", JSON.stringify(copyfavroite));
+//     let copyfavorite = [...favorite];
+//     copyfavorite.push(recipe);
+//     setfavorite(copyfavorite);
+//     window.localStorage.setItem("favorite", JSON.stringify(copyfavorite));
 //     toast.done("Added to favorite");
 //   };
 //   const unfavoriteHandler = () => {
-//     const filteredfavorite = favroite.filter((f) => f.id != id);
-//     setfavroite(filteredfavorite);
-//     window.localStorage.setItem("favroite", JSON.stringify(filteredfavorite));
+//     const filteredfavorite = favorite.filter((f) => f.id != id);
+//     setfavorite(filteredfavorite);
+//     window.localStorage.setItem("favorite", JSON.stringify(filteredfavorite));
 //     toast.dismiss("Remove from favorite");
 //   };
 
@@ -66,7 +66,7 @@
 //     toast.success("Recipe Deleted!");
 //     navigate(-1);
 //   };
-//   console.log(favroite);
+//   console.log(favorite);
 
 //   return recipe ? (
 //     <div className="mt-5 w-full h-screen overflow-auto flex justify-around gap-1 ">
@@ -78,8 +78,8 @@
 //             src={recipe?.image}
 //             alt="network error"
 //           />
-//           {/* {favroite.find((r) => r.id === recipe.id) ? */}
-//           {favroite.some((r) => r.id === recipe.id) ? (
+//           {/* {favorite.find((r) => r.id === recipe.id) ? */}
+//           {favorite.some((r) => r.id === recipe.id) ? (
 //             <i
 //               onClick={unfavoriteHandler}
 //               className="ri-heart-add-line px-2 py-1 text-xl shadow-2xl rounded-full  bg-red-500 hover:bg-black hover:text-white "
@@ -174,40 +174,40 @@
 
 // export default Recipe;
 
-
 //----------------------------------------------------------------------------------------------------------------------
 
-
-
 /* eslint-disable no-unused-vars */
+import "remixicon/fonts/remixicon.css";
 import { useContext, useState } from "react";
 import { useForm } from "react-hook-form";
 import { useNavigate, useParams } from "react-router";
 import { toast } from "react-toastify";
-import "remixicon/fonts/remixicon.css";
 import { recipecontext } from "../context/RecipeContext";
 
 const Recipe = () => {
   const navigate = useNavigate();
-  const { data, setdata, favroite, setfavroite } = useContext(recipecontext);
+  const { data, setdata, favorite, setfavorite } = useContext(recipecontext);
   const { id } = useParams();
   console.log(id);
-
+  console.log("recipecontext", recipecontext);
   const recipe = data.find((r) => r.id === id);
   console.log(recipe);
 
   const favoriteHandler = () => {
-    let copyfavroite = [...favroite];
-    copyfavroite.push(recipe);
-    setfavroite(copyfavroite);
-    window.localStorage.setItem("favroite", JSON.stringify(copyfavroite));
-    toast.done("Added to favorite");
+    const alreadyFav = favorite.some((f) => f.id === recipe.id);
+    if (!alreadyFav) {
+      const updatedFavorites = [...favorite, { ...recipe }];
+      setfavorite(updatedFavorites);
+      window.localStorage.setItem("favorite", JSON.stringify(updatedFavorites));
+      toast("Added to favorite");
+    }
   };
+
   const unfavoriteHandler = () => {
-    const filteredfavorite = favroite.filter((f) => f.id != id);
-    setfavroite(filteredfavorite);
-    window.localStorage.setItem("favroite", JSON.stringify(filteredfavorite));
-    toast.dismiss("Remove from favorite");
+    const updatedFavorites = favorite.filter((f) => f.id !== recipe.id);
+    setfavorite(updatedFavorites);
+    window.localStorage.setItem("favorite", JSON.stringify(updatedFavorites));
+    toast("Removed from favorite");
   };
 
   const [category, setCategory] = useState("breakfast");
@@ -244,10 +244,15 @@ const Recipe = () => {
     setdata(filterData);
     window.localStorage.setItem("recipes", JSON.stringify(filterData));
     // if recipe not exist remove also from favorite
+    const updatedFavorites = favorite.filter((f) => f.id !== id);
+    setfavorite(updatedFavorites);
+    localStorage.setItem("favorite", JSON.stringify(updatedFavorites));
+
     toast.success("Recipe Deleted!");
     navigate(-1);
   };
-  console.log(favroite);
+
+  // console.log(favorite);
 
   return recipe ? (
     <div className="min-h-screen  py-8 ">
@@ -261,7 +266,7 @@ const Recipe = () => {
                 {recipe?.title}
               </h1>
 
-              {favroite.some((r) => r.id === recipe.id) ? (
+              {favorite.some((r) => r.id === recipe.id) ? (
                 <button
                   onClick={unfavoriteHandler}
                   className="px-4 py-3 bg-gradient-to-r from-red-500 to-pink-500 text-white rounded-full shadow-lg hover:shadow-xl transform hover:scale-110 transition-all duration-300 group"
@@ -447,10 +452,10 @@ const Recipe = () => {
                     value={category}
                     onChange={(e) => setCategory(e.target.value)}
                   >
-                    <option value="Breakfast">🌅 Breakfast</option>
-                    <option value="Lunch">🌞 Lunch</option>
-                    <option value="Supper">🌆 Supper</option>
-                    <option value="Dinner">🌙 Dinner</option>
+                    <option value="Breakfast"> Breakfast</option>
+                    <option value="Lunch"> Lunch</option>
+                    <option value="Supper"> Supper</option>
+                    <option value="Dinner"> Dinner</option>
                   </select>
                 </div>
 
