@@ -53,6 +53,7 @@ const Favorite = () => {
           reciperender
         ) : (
           <div className="w-full text-center py-8 sm:py-12 md:py-16 lg:py-20">
+              <img src="notFound.svg" alt="newtwork error"/>
             <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-gray-600 font-medium">
               No Recipe found!
             </p>

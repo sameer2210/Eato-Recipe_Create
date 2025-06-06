@@ -56,7 +56,7 @@ const HeroSection = () => {
         ))}
       </div>
 
-      <div className="relative z-10 max-w-7xl mx-auto h-full p-4 sm:p-6 lg:p-8">
+      <div className="relative z-10 max-w-7xl mx-auto h-full p-4 sm:p-6 lg:p-8 ">
         {/* Desktop Layout - Asymmetrical Masonry Style */}
         <div className=" md:flex p-4 ">
           {/* Left Column - 30% */}
@@ -76,7 +76,7 @@ const HeroSection = () => {
                 className={`transform transition-all duration-700 delay-500 ${isVisible ? "translate-y-0 opacity-100" : "translate-y-8 opacity-0"}`}
               >
                 <div className="group relative">
-                  <div className="absolute -inset-3 bg-gradient-to-r from-pink-400 to-orange-400 rounded-full blur opacity-30 group-hover:opacity-60 transition-opacity duration-300" />
+                  <div className="absolute -inset-3 bg-gradient-to-r from-pink-400 to-orange-400 rounded-full blur opacity-30 group-hover:opacity-60 transition-opacity duration-300 " />
                   <div className="relative w-28 h-28 lg:w-32 lg:h-32 bg-white/90 backdrop-blur-sm rounded-full shadow-2xl flex items-center justify-center border border-white/40 group-hover:scale-110 transition-transform duration-300">
                     <div className="text-center">
                       <div className="text-sm font-light text-gray-500 tracking-widest mb-1">
@@ -131,7 +131,7 @@ const HeroSection = () => {
             </div>
 
             {/* Burger Image */}
-            <div className="flex-none flex items-center justify-center">
+            <div className="flex-none flex items-center justify-between">
               <div
                 className={`relative group transform transition-all duration-700 delay-700 ${isVisible ? "translate-y-0 opacity-100" : "translate-y-8 opacity-0"}`}
               >
@@ -139,24 +139,24 @@ const HeroSection = () => {
                 <img
                   src="https://images.unsplash.com/photo-1605709303019-109aaf636e32?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
                   alt="Gourmet burger with purple cabbage"
-                  className="relative w-full max-w-xs h-48 lg:h-56 object-cover rounded-2xl shadow-2xl group-hover:scale-105 transition-transform duration-500 border border-white/20"
+                  className="relative w-full max-w-xs h-64 lg:h-56 object-cover rounded-2xl shadow-2xl group-hover:scale-105 transition-transform duration-500 border border-white/20"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent rounded-2xl" />
               </div>
             </div>
 
             {/* Bottom Image */}
-            <div className="flex-1 flex items-end justify-center">
+            <div className="flex-1 flex items-end justify-end ">
               <div
                 className={`transform transition-all duration-700 delay-1200 ${isVisible ? "translate-y-0 opacity-100" : "translate-y-8 opacity-0"}`}
               >
                 <div className="relative group">
                   <div className="absolute -inset-4 bg-gradient-to-r from-violet-300 to-pink-300 blur-xl opacity-30 group-hover:opacity-50 transition-opacity duration-300 rounded-2xl" />
-                  <div className="relative w-72 h-32 lg:h-36 overflow-hidden rounded-2xl shadow-2xl group-hover:scale-105 transition-transform duration-500 border border-white/20">
+                  <div className="relative w-96 h-72 lg:h-36 overflow-hidden rounded-2xl shadow-2xl group-hover:scale-105 transition-transform duration-500 border border-white/20">
                     <img
                       src="https://images.unsplash.com/photo-1608579528402-8b494d52269d?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
                       alt="Food in bowl"
-                      className="w-full h-full object-cover"
+                      className="w-full h-full  object-cover"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent" />
                     <div className="absolute bottom-3 left-3 text-white font-light text-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300">

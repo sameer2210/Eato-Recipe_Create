@@ -59,13 +59,13 @@ const Recipes = () => {
         </Link>
 
         <motion.div
-          className="pt-16 sm:pt-20 pb-6 px-2 sm:px-4 flex flex-wrap justify-center sm:justify-start items-start gap-4 sm:gap-6"
+          className="pt-16 sm:pt-20 pb-6 px-2 sm:px-4 flex flex-wrap  justify-center sm:justify-start items-start gap-4 sm:gap-6"
           initial={{ opacity: 0, scale: 0.95 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.5 }}
         >
           {data.length > 0 ? (
-            <div className="w-full grid  grid-cols-1 sm:grid-cols-2  md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4 sm:gap-6 shadow-2xl hover:shadow-3xl">
+            <div className="w-full grid  grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4 sm:gap-6 ">
               {reciperender}
             </div>
           ) : (

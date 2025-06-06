@@ -40,11 +40,15 @@ const Navbar = () => {
   const [show, setShow] = useState(false);
 
   return (
-    <nav className="flex xl:min-w-full px-2.5 xl:px-5 py-6 pb-10 xl:pb-6 mb-6 justify-between relative items-center">
+    <nav className="flex xl:min-w-full lg:py-3 px-2.5 xl:px-5 py-6 pb-10 xl:pb-6 mb-6 justify-between relative items-center">
       <div className="absolute bottom-0 left-0 w-full h-px bg-gray-300"></div>
 
-      <div className="flex-1 flex items-center text-4xl mask-b-from-neutral-200 font-normal tex">
-        Eato
+      <div className="flex-1 ">
+        <img
+          className="w-[20%] rounded-full "
+          src="logo.png"
+          alt="network error"
+        />
       </div>
 
       {/* Desktop Navigation */}
@@ -151,7 +155,7 @@ const Navbar = () => {
             FAVORITE
           </NavLink>
           <NavLink
-            className=" w-1/2 ml-24 px-5 py-2 text-black bg-transparent border border-gray-800 rounded-full text-base hover:text-white hover:bg-gray-800 transition-all duration-300 mt-2"
+            className=" w-1/2 ml-32 px-5 py-2 text-black bg-transparent border border-gray-800 rounded-full text-base hover:text-white hover:shadow-2xl hover:shadow-green-500 hover:bg-gray-800 transition-all duration-300"
             to="/recipes/create-recipe"
             onClick={() => setShow(false)}
           >
